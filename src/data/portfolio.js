@@ -1,7 +1,7 @@
 export const contact = {
   email: 'frankviktoria.dev@gmail.com',
   github: 'https://github.com/Wiiko0',
-  linkedin: 'https://www.linkedin.com/in/vikt%C3%B3ria-frank-5b6ab425/'
+  linkedin: 'https://www.linkedin.com/in/viktória-frank-5b6ab4253'
 }
 
 export const projects = [
@@ -10,21 +10,21 @@ export const projects = [
     tags: ['Java', 'Java Swing', 'Game dev'],
     accent: 'plum',
     icon: '▦',
-    link: contact.github
+    link: 'https://github.com/Wiiko0/MineSweeper'
   },
   {
     title: 'PewPewFriends',
     tags: ['Unity', 'C#', 'Game dev'],
     accent: 'plum',
     icon: '✦',
-    link: contact.github
+    link: 'https://github.com/Wiiko0/PewPewFriends'
   },
   {
     title: 'Portfolio Website',
     tags: ['Web', 'JavaScript', 'Vue'],
     accent: 'moss',
     icon: '♥',
-    link: contact.github
+    link: 'https://github.com/Wiiko0/Portfolio'
   }
 ]
 
