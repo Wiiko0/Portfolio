@@ -1,0 +1,507 @@
+/* Hero introduction and decorative moon artwork. */
+.hero {
+  position: relative;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  min-height: 660px;
+  align-items: center;
+}
+
+.hero-copy {
+  max-width: none;
+  padding: 55px 0 80px;
+}
+
+.spark {
+  /* Decorative star beside the introductory label. */
+  margin-right: 8px;
+  font-size: 13px;
+}
+
+.hero h1 {
+  margin: 23px 0 30px;
+  font-size: clamp(54px, 8vw, 95px);
+  font-weight: 500;
+  line-height: 0.97;
+  letter-spacing: -0.06em;
+}
+
+.hero-intro,
+.body-copy,
+.project-details > p:not(.project-type),
+.resume-item p,
+.resume-note {
+  /* Muted explanatory text used throughout the content sections. */
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.hero-intro {
+  max-width: 440px;
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+.hero-actions {
+  /* Primary résumé button and secondary projects link. */
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  margin-top: 39px;
+}
+
+.button {
+  border: 0;
+  padding: 14px 20px;
+  font-size: 12px;
+}
+
+.button-primary {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+.button-primary span,
+.text-link span,
+.email-link span,
+.github-link span {
+  /* Arrow symbols inside action links. */
+  margin-left: 12px;
+  font-size: 17px;
+}
+
+.text-link {
+  font-size: 12px;
+}
+
+.hero-art {
+  position: relative;
+  display: grid;
+  min-height: 480px;
+  place-items: center;
+}
+
+.moon {
+  /* The moon is a circle with a background-colored cutout. */
+  position: relative;
+  display: grid;
+  width: 260px;
+  height: 260px;
+  place-items: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--moon-start), var(--moon-end));
+  box-shadow: 0 0 80px var(--glow);
+}
+
+.moon::after {
+  /* The cutout is a pseudo-element. */
+  position: absolute;
+  top: -17px;
+  left: 45px;
+  width: 228px;
+  height: 228px;
+  border-radius: 50%;
+  background: var(--bg);
+  content: '';
+}
+
+.moon span {
+  /* Moon symbol placed above the cutout. */
+  z-index: 1;
+  color: var(--bg);
+  font-size: 35px;
+  transform: translate(-9px, 12px);
+}
+
+.orbit {
+  /* Shared styling for the two decorative elliptical paths. */
+  position: absolute;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  transform: rotate(-26deg);
+}
+
+.orbit-one {
+  width: 370px;
+  height: 115px;
+}
+
+.orbit-two {
+  width: 430px;
+  height: 180px;
+  transform: rotate(42deg);
+}
+
+.marquee {
+  overflow: hidden;
+  padding: 19px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+  font: 11px var(--font-mono);
+  letter-spacing: 0.12em;
+  white-space: nowrap;
+}
+
+.marquee-track {
+  display: flex;
+  justify-content: space-around;
+  animation: slide 22s linear infinite;
+}
+
+.marquee i {
+  color: var(--accent);
+  font-style: normal;
+}
+
+/* About and work sections. */
+.about,
+.work,
+.resume,
+.contact {
+  padding-top: 145px;
+}
+
+.work {
+  /* Keep filter clicks from changing the page's current scroll position. */
+  overflow-anchor: none;
+}
+
+.body-copy {
+  max-width: 610px;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.info-row {
+  /* Compact facts row under the about paragraph. */
+  display: flex;
+  gap: 80px;
+  margin-top: 58px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+
+.info-row div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.info-label {
+  color: var(--muted);
+}
+
+.info-row strong {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.work-heading,
+.resume-heading {
+  /* Heading row with a count or résumé download button. */
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+}
+
+.project-count {
+  color: var(--muted);
+  font: 10px var(--font-mono);
+}
+
+.filters {
+  /* Project filter tabs. */
+  display: flex;
+  gap: 22px;
+  margin: 28px 0 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+.filters button {
+  padding: 0 0 13px;
+  border: 0;
+  background: none;
+  color: var(--muted);
+  font: 10px var(--font-mono);
+}
+
+.filters button.active {
+  border-bottom: 1px solid var(--accent);
+  color: var(--accent);
+}
+
+.project-list {
+  display: grid;
+  gap: 14px;
+}
+
+.project-card {
+  position: relative;
+  display: grid;
+  min-height: 220px;
+  grid-template-columns: 55px 175px 1fr 30px;
+  align-items: center;
+  gap: 20px;
+  padding: 22px;
+  background: var(--surface);
+  text-decoration: none;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project-card:hover {
+  /* Lift the card slightly when the pointer is over it. */
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px var(--shadow);
+}
+
+.project-card.moss {
+  border-left: 3px solid var(--moss);
+}
+
+.project-card.plum {
+  border-left: 3px solid var(--plum);
+}
+
+.project-number {
+  align-self: start;
+  color: var(--muted);
+  font: 11px var(--font-mono);
+}
+
+.project-visual {
+  position: relative;
+  display: grid;
+  height: 175px;
+  place-items: center;
+  overflow: hidden;
+  background: var(--project-visual);
+}
+
+.moss .project-visual {
+  /* A moss-accented card gets a matching preview background. */
+  background: var(--project-moss-visual);
+}
+
+.project-visual > span {
+  z-index: 1;
+  color: var(--accent);
+  font: 61px var(--font-display);
+}
+
+.moss .project-visual > span {
+  color: var(--moss);
+}
+
+.visual-grid {
+  /* Decorative grid drawn over the project preview. */
+  position: absolute;
+  inset: 0;
+  opacity: 0.3;
+  background:
+    linear-gradient(90deg, transparent 49%, var(--accent) 50%, transparent 51%),
+    linear-gradient(0deg, transparent 49%, var(--accent) 50%, transparent 51%);
+  background-size: 28px 28px;
+}
+
+.project-details h3 {
+  margin: 7px 0 10px;
+  font: 500 30px var(--font-display);
+}
+
+.project-details > p:not(.project-type) {
+  /* Select project descriptions, excluding the type label. */
+  max-width: 430px;
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.project-type {
+  margin: 0;
+}
+
+.tag-list,
+.skill-cloud {
+  /* Tags and skills wrap onto new lines when needed. */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag-list {
+  margin-top: 17px;
+}
+
+.tag-list span,
+.skill-cloud span {
+  padding: 5px 8px;
+  border: 1px solid var(--line);
+  color: var(--muted);
+  font: 9px var(--font-mono);
+}
+
+.project-arrow {
+  align-self: start;
+  color: var(--accent);
+  font-size: 21px;
+}
+
+.github-link {
+  display: block;
+  margin-top: 26px;
+  color: var(--muted);
+  font: 11px var(--font-mono);
+  text-align: right;
+  text-decoration: none;
+}
+
+.github-link:hover {
+  color: var(--accent);
+}
+
+/* Résumé section. */
+.resume-heading {
+  gap: 20px;
+}
+
+.resume-button {
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.resume-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 55px;
+  padding-top: 25px;
+  border-top: 1px solid var(--line);
+}
+
+.resume-label {
+  margin: 0 0 22px;
+}
+
+.resume-item {
+  /* Timeline-style résumé entry with a left divider. */
+  margin-bottom: 27px;
+  padding-left: 18px;
+  border-left: 1px solid var(--line);
+}
+
+.resume-item strong {
+  display: block;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.resume-item span {
+  display: block;
+  margin-top: 7px;
+  color: var(--muted);
+  font: 10px var(--font-mono);
+  text-transform: uppercase;
+}
+
+.resume-item p,
+.resume-note {
+  margin: 10px 0 0;
+  font-size: 13px;
+}
+
+.second-label {
+  margin-top: 39px;
+}
+
+.language-list {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  margin-left: 0;
+  padding: 18px 0 18px 18px;
+  border-left: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.skill-cloud {
+  margin-top: 27px;
+}
+
+.skills-label {
+  margin-top: 39px;
+  margin-bottom: 0;
+}
+
+.skill-cloud span {
+  padding: 7px 10px;
+}
+
+.resume-note {
+  margin-top: 25px;
+}
+
+/* Contact section and footer. */
+.contact {
+  padding-bottom: 150px;
+}
+
+.contact-content {
+  padding-left: 8%;
+}
+
+.email-link {
+  display: inline-block;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--accent);
+  color: var(--text);
+  font: 22px var(--font-display);
+  text-decoration: none;
+}
+
+.email-link span {
+  color: var(--accent);
+}
+
+.contact h2 {
+  margin-bottom: 35px;
+}
+
+.socials {
+  /* External profile links below the email address. */
+  display: flex;
+  gap: 28px;
+  margin-top: 52px;
+  font: 10px var(--font-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.socials a {
+  color: var(--muted);
+}
+
+footer {
+  /* Bottom-of-page copyright and signature row. */
+  display: flex;
+  justify-content: space-between;
+  padding-top: 22px;
+  padding-bottom: 28px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font: 10px var(--font-mono);
+}
+
+footer b {
+  margin-left: 5px;
+  color: var(--accent);
+  font-size: 14px;
+}
+
+/* Classes used by App.vue for the entrance animation. */
+.reveal {
+  animation: rise 0.9s ease both;
+}
+
+.delay-one {
+  animation-delay: 0.18s;
+}

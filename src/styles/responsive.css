@@ -1,0 +1,140 @@
+/* Mobile layout adjustments below 760px viewport width. */
+@media (max-width: 760px) {
+  body {
+    cursor: auto;
+  }
+
+  a,
+  button {
+    cursor: auto;
+  }
+
+  .cursor-glow {
+    display: none;
+  }
+
+  .nav-wrap,
+  main,
+  footer {
+    padding-inline: 22px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .section-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .section-label {
+    flex-direction: row;
+    align-items: center;
+    writing-mode: horizontal-tb;
+  }
+
+  .section-label .line {
+    width: 35px;
+    height: auto;
+    border-top: 1px solid var(--line);
+    border-left: 0;
+  }
+
+  .hero {
+    min-height: auto;
+    padding-top: 50px;
+  }
+
+  .hero-copy {
+    width: 100%;
+    max-width: none;
+    padding: 0;
+  }
+
+  .hero-intro {
+    width: 100%;
+    max-width: none;
+  }
+
+  .hero-art {
+    min-height: 390px;
+  }
+
+  .moon {
+    width: 190px;
+    height: 190px;
+  }
+
+  .moon::after {
+    top: -12px;
+    left: 34px;
+    width: 168px;
+    height: 168px;
+  }
+
+  .orbit-one {
+    width: 280px;
+    height: 100px;
+  }
+
+  .orbit-two {
+    width: 320px;
+    height: 150px;
+  }
+
+  .about,
+  .work,
+  .resume,
+  .contact {
+    padding-top: 90px;
+  }
+
+  .info-row {
+    flex-wrap: wrap;
+    gap: 25px;
+  }
+
+  .project-card {
+    grid-template-columns: 1fr 30px;
+  }
+
+  .project-number {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+  }
+
+  .project-visual {
+    grid-column: 1 / -1;
+    height: 150px;
+  }
+
+  .project-details {
+    grid-column: 1;
+  }
+
+  .project-arrow {
+    grid-column: 2;
+    grid-row: 3;
+  }
+
+  .resume-heading {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .resume-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .contact-content {
+    padding-left: 0;
+  }
+
+  footer {
+    flex-direction: column;
+    gap: 15px;
+  }
+}

@@ -1,0 +1,141 @@
+/* Full-screen decorative layers. They never intercept clicks. */
+.starfield,
+.grain {
+  position: fixed;
+  z-index: 0;
+  inset: 0;
+  pointer-events: none;
+}
+
+.starfield {
+  /* The canvas is drawn by Starfield.vue. */
+  opacity: 0.72;
+}
+
+.grain {
+  /* A subtle SVG noise texture makes large flat areas less sterile. */
+  z-index: 10;
+  opacity: 0.035;
+  background-image: url('/grain.svg');
+}
+
+/* The custom star-shaped cursor follows the pointer in App.vue. */
+.cursor-glow {
+  position: fixed;
+  z-index: 20;
+  top: -15px;
+  left: -15px;
+  display: grid;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  pointer-events: none;
+  color: var(--cursor);
+  font-size: 17px;
+  opacity: 0;
+  transition: color 0.25s, opacity 0.25s;
+  will-change: transform;
+  mix-blend-mode: screen;
+}
+
+.cursor-glow::before {
+  /* `::before` creates a decorative child without extra HTML. */
+  position: absolute;
+  inset: 5px;
+  border-radius: 50%;
+  background: var(--cursor);
+  filter: blur(11px);
+  opacity: 0.5;
+  content: '';
+}
+
+.cursor-glow span {
+  /* The span contains the visible star symbol. */
+  position: relative;
+  color: var(--cursor);
+  text-shadow: var(--cursor-shadow);
+  animation: cursor-pulse 2.4s ease-in-out infinite;
+}
+
+.cursor-glow.visible {
+  opacity: 0.85;
+}
+
+.cursor-glow.interactive {
+  color: var(--interactive);
+  transform: scale(1.35);
+}
+
+.cursor-glow.interactive::before {
+  background: var(--interactive);
+}
+
+.cursor-glow.interactive span {
+  color: var(--interactive);
+  text-shadow: var(--interactive-shadow);
+}
+
+:root[data-theme='light'] .cursor-glow {
+  mix-blend-mode: multiply;
+}
+
+:root[data-theme='light'] .cursor-glow::before {
+  opacity: 0.65;
+}
+
+:root[data-theme='light'] .cursor-glow span {
+  text-shadow: var(--cursor-shadow);
+}
+
+:root[data-theme='light'] .cursor-glow.interactive span {
+  text-shadow: var(--interactive-shadow);
+}
+
+/* Soft blurred color circles behind the page content. */
+.ambient {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0.2;
+  filter: blur(70px);
+}
+
+.ambient-one {
+  top: 10%;
+  right: -160px;
+  width: 300px;
+  height: 300px;
+  background: var(--plum);
+}
+
+.ambient-two {
+  top: 45%;
+  left: -180px;
+  width: 260px;
+  height: 260px;
+  background: var(--moss);
+}
+
+@keyframes cursor-pulse {
+  50% {
+    transform: scale(0.82) rotate(25deg);
+  }
+}
+
+@keyframes slide {
+  to {
+    transform: translateX(-20%);
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}

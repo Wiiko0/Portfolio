@@ -1,0 +1,43 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  cursor: none;
+}
+
+a,
+button {
+  color: inherit;
+  cursor: none;
+}
+
+button {
+  font: inherit;
+}
+
+/* Main wrapper that contains the entire visible page. */
+.site-shell {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* Keep content centered and above the decorative background layers. */
+.nav-wrap,
+main,
+footer {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: auto;
+  padding-inline: 42px;
+}
